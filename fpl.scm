@@ -7,7 +7,7 @@
 )
 
 
-; ; function that takes a list L and returns reversed version of L
+; function that takes a list L and returns reversed version of L
 (define (reverse-general L)
   (cond
     ((null? L) '()) ; return L as it is if empty
@@ -15,7 +15,7 @@
    )
 )
 
-;(display(reverse-general '(1 (2 3) (4 (a (b (c d))))) ))
+;(display(reverse-general '(1 (2 3) (4 (a (b (c d))))))) ; check for (1 (2 3) (4 (a (b (c d)))))
 
 
 ; the function that returns the sum of only numbers in the list L
