@@ -29,3 +29,18 @@
 )
 
 ;(display (sum-up-numbers-simple  '(a 100 b (200) c 300 d))) ; check for (a 100 b (200) c 300 d)
+
+
+; the function that returns the sum of all the numbers (including those in nested lists) 
+(define (sum-up-numbers-general L)
+  (if (null? L) ; return 0 if no list
+    0
+  (if (number? (car L))
+    (+ (car L) (sum-up-numbers-general  (cdr L))) ; add the element only if it is number
+  (if (list? (car L))
+    (+ (sum-up-numbers-general(car L)) (sum-up-numbers-general (cdr L))) ; if the element is list, recursively add list
+    (+ 0 (sum-up-numbers-general (cdr L))))) ; if the element is 0, add 0
+  )
+)
+
+;(display (sum-up-numbers-general  '(a 100 ((b ((200) c)) 300 d)))) ; check for (a 100 ((b ((200) c)) 300 d))
