@@ -55,3 +55,13 @@
           (else (minim (cdr lst))) ; else recurse with suffix
     )
 )
+
+
+; function that compares the value with elements in the list and returns the element greater than value
+; returns False if there is no such value
+(define (find-larger num lst)
+  (cond ((null? lst) #f) ; return false if list is exhaused w/o finding value
+        ((and (number? (car lst))(> (car lst) num)) (car lst)) ; if prefix in list is greater than value, return prefix
+        (else (find-larger num (cdr lst))) ; else recurse with suffix
+  )
+)
