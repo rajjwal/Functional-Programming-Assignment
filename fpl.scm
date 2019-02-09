@@ -65,3 +65,15 @@
         (else (find-larger num (cdr lst))) ; else recurse with suffix
   )
 )
+
+; function that returns the minimum of the numbers in L1 that is larger
+; than the smallest number in L2. If there is no number in L2, L1 is used to calculate the minimum
+; If there is no number in L1 larger than the smallest number in L2, the result is false (#F).
+(define (min-above-min L1 L2)
+  (cond ((not (eq? (minim L2) +inf.0)) (find-larger (minim L2) L1)) ; if there is minimum in L2, find larger element than the minimum in L1
+        ((eq? (minim L1) +inf.0) #f) ; if there is no minimum in L1 and L2, return False
+        (else (minim L1)); if there is no minimum in L2, find minimum in L1
+   )
+)
+
+;(display (min-above-min '(2 a 1 3)   '(b 5 3 1))) ; check for (2 a 1 3) and (b 5 3 1)
