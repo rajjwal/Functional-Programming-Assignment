@@ -44,3 +44,14 @@
 )
 
 ;(display (sum-up-numbers-general  '(a 100 ((b ((200) c)) 300 d)))) ; check for (a 100 ((b ((200) c)) 300 d))
+
+
+; function that returns minimum number from the list
+; returns the maximum number possible (+inf.0) if there are no numbers
+(define (minim lst)
+    (cond ((null? lst) +inf.0) ; return +inf.0 if list exhausted w/o numbers
+          ((and (null? (cdr lst)) (number? (car lst))) (car lst)) ; if suffix is null and prefix is number than return prefix
+          ((and (number? (car lst))(< (car lst) (minim (cdr lst)))) (car lst)) ; if prefix is smaller than suffix, return prefix
+          (else (minim (cdr lst))) ; else recurse with suffix
+    )
+)
